@@ -1,0 +1,9 @@
+Command for Install SCSS = npm install node-sass
+
+Command for Compile SCSS to csss = node-sass -w style.scs style.css --output-style compressed
+
+OR
+
+Command for Compile SCSS to csss = node-sass  style.scs style.css -watch --output-style compressed
+
+CSS code format = nested, expanded, compact, compressed

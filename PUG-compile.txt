@@ -1,0 +1,3 @@
+Command for Install pug = Npm install -g pug-cli 
+
+Command for compile pug file to html = pug -w ./ -o ./html -P 
