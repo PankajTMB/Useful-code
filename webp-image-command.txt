@@ -1,3 +1,15 @@
 npm install imagemin imagemin-webp = for install webp node module
 
 node webp.js = for compile image into webp images
+
+
+=== example for use webp image ==== 
+<picture>
+  <source srcset="img/awesomeWebPImage.webp" type="image/webp">
+  <source srcset="img/creakyOldJPEG.jpg" type="image/jpeg"> 
+  <img src="img/creakyOldJPEG.jpg" alt="Alt Text!">
+</picture>
+
+.webp .elementWithBackgroundImage{
+  background-image: url("image.webp");
+}
