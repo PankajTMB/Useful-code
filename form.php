@@ -16,7 +16,7 @@ if(isset($_POST['submit'])){
      if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
 
 
-        $to = "vipan.tr.mdb@gmail.com";
+        $to = "Example@gmail.com";
 
         $subject = 'UIUX Form';
         $message = '
