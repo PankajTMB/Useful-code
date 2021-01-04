@@ -1,9 +1,24 @@
-=== Git Commands for upload files === 
+===== Git Commands for upload files for First time ====== 
 
+git clone (https link) = for clone git file at local space.
+   
+           OR
+
+git init
+git status
+git add .
+git commit -m "first commit"
+git remote add origin (new repository file link)
+git push origin master 
+
+
+=== Git Commands for upload files === 
 (1) git status
 (2) git add .
 (3) git commit -m "Write here your Comment"
 (4) git pull 
 (5) git push
 
-git clone (https link) = for clone git file at local space.
+
+
+
