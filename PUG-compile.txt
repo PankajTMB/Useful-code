@@ -1,3 +1,6 @@
-Command for Install pug = Npm install -g pug-cli 
+
+pug wesite link = https://pugjs.org/api/getting-started.html
+
+Command for Install pug = npm install -g pug-cli 
 
 Command for compile pug file to html = pug -w ./ -o ./html -P 
