@@ -1,0 +1,61 @@
+
+// faq page buttons js code Start
+var accessibleTabsContainers = document.querySelectorAll('.accessibleTabsContainers-class');
+var tabSelector = document.querySelectorAll('.tabSelector-class');
+var tabContent = document.querySelectorAll('.tabContent-class');
+var largeRandNumber = Math.floor((Math.random() * 1000) + 1000);
+
+accessibleTabsContainers.forEach(function(elem, indexAccessibleTabContainer) {
+  elem.setAttribute('data-id', indexAccessibleTabContainer);
+  
+  tabSelector.forEach(function(singleTabSelector, i) {
+    // add class name here also for create id 
+    var tabSelectorId = 'tabSelector-class-' + largeRandNumber + '_' + i + '_' + indexAccessibleTabContainer;
+    var ariaControlTabContent = 'tabContent-class-' + largeRandNumber + '_' + i + '_' + indexAccessibleTabContainer;
+
+    singleTabSelector.setAttribute('data-id', i);
+    singleTabSelector.setAttribute('id', tabSelectorId);
+    singleTabSelector.setAttribute('aria-controls', ariaControlTabContent);
+
+    tabContent[i].setAttribute('data-id', i);
+    tabContent[i].setAttribute('tabindex', 0);
+    tabContent[i].setAttribute('role', 'tabpanel');
+    tabContent[i].setAttribute('id', ariaControlTabContent);
+    tabContent[i].setAttribute('aria-labeledby', tabSelectorId);
+
+    if(i === 0) {
+      singleTabSelector.setAttribute('aria-pressed', 'true');
+    } else {
+      singleTabSelector.setAttribute('aria-pressed', 'false');
+      singleTabSelector.setAttribute('tabindex', -1);
+    }
+  });
+});  
+
+function onTabSelectorClick(e) {
+    var tabSelectorSelected = e.target;
+    var accessibleTabsContainerSelected = tabSelectorSelected.closest('.accessibleTabsContainers-class'); 
+    var tabSelectorsSelectedFromTabs = accessibleTabsContainerSelected.querySelectorAll('.tabSelector-class');
+    var tabContentsSelectedFromContainer = accessibleTabsContainerSelected.querySelectorAll('.tabContent-class');
+  
+    if(!tabSelectorSelected.classList.contains('active')) {
+      tabSelectorsSelectedFromTabs.forEach(function(singleTabSelected, i) {
+        if(tabSelectorSelected.getAttribute('data-id') === tabContentsSelectedFromContainer[i].getAttribute('data-id')) {
+          singleTabSelected.classList.add('active');
+          singleTabSelected.setAttribute('tabindex', 0);
+          singleTabSelected.setAttribute('aria-pressed', 'true');
+          tabContentsSelectedFromContainer[i].classList.add('active');
+        } else {
+          singleTabSelected.classList.remove('active');
+          singleTabSelected.setAttribute('tabindex', -1);
+          singleTabSelected.setAttribute('aria-pressed', 'false');
+          tabContentsSelectedFromContainer[i].classList.remove('active');
+        }
+
+      });
+    }
+}
+tabSelector.forEach(function(tabSelector) {
+  tabSelector.addEventListener('click', onTabSelectorClick);
+});
+
