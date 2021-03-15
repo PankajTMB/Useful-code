@@ -4,6 +4,6 @@ Command for Compile SCSS to csss = node-sass -w style.scss style.css --output-st
 
 OR
 
-Command for Compile SCSS to csss = node-sass  style.scs style.css -watch --output-style compressed
+Command for Compile SCSS to csss = node-sass  style.scss style.css -watch --output-style compressed
 
 CSS code format = nested, expanded, compact, compressed
