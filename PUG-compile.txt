@@ -2,7 +2,10 @@
 pug wesite link = https://pugjs.org/api/getting-started.html
 
 Command for Install pug = npm install -g pug-cli 
-
-Command for compile pug file to html = pug -w ./ -o ./html -P 
-
 Command for check pug version = pug --version
+
+Command for compile pug file to html = pug -w (source pug file path) -o (destination html file path) -P 
+
+for Example
+Command for compile pug file to html = pug -w ./pug -o ./ -P 
+

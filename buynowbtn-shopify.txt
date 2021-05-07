@@ -1,0 +1,120 @@
+/*<![CDATA[*/
+  if(window.innerWidth > 991) {
+(function () {
+  var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
+  if (window.ShopifyBuy) {
+    if (window.ShopifyBuy.UI) {
+      ShopifyBuyInit();
+    } else {
+      loadScript();
+    }
+  } else {
+    loadScript();
+  }
+  function loadScript() {
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = scriptURL;
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
+    script.onload = ShopifyBuyInit;
+  }
+  function ShopifyBuyInit() {
+    var client = ShopifyBuy.buildClient({
+      domain: 'behno.myshopify.com',
+      storefrontAccessToken: '03fca4c2cd39f4acf97731b87358de05',
+    });
+    ShopifyBuy.UI.onReady(client).then(function (ui) {
+      ui.createComponent('product', {
+          id: '{{ product.id }}',
+          variantId: '{{ product.variants.first.id }}',
+        node: document.getElementById('product-component-{{ product.id }}'),
+        moneyFormat: '%24%7B%7Bamount_no_decimals%7D%7D',
+        options: {
+  "product": {
+    "styles": {
+      "product": {
+        "@media (min-width: 601px)": {
+          "max-width": "calc(25% - 20px)",
+          "margin-left": "20px",
+          "margin-bottom": "50px",
+        },
+        "width" : "100%",
+        "max-width" : "100%" 
+      },
+      "title": {
+          "display": "none"
+       },
+      "price": {
+           "display": "none"
+       },
+        "unitPrice": {
+          "display": "none"
+       },
+       "button":{
+           "background": "#000000",
+           "border-radius": "0px",  
+           "width": "100%", 
+           "max-width": "auto",                          
+           "height": "46px",                         
+           "text-transform": "uppercase" ,
+            ":hover": {
+              'background': '#000000',
+              'color': '#ffffff'           
+            }
+       }                  
+      },
+      "iframe" : false,
+      "events":{
+//                   'beforeInit': function (component) {console.log(1);}, // before component is initialized
+//                   'afterInit': function (component) {console.log(2);},
+//                   'beforeRender': function (component) {console.log(3);}, // before component is rendered, after it has a `model` defined
+//                   'afterRender': function (component) {console.log(4);},
+//                   'beforeDelegateEvents': function (console.log) {alert(5);}, // before events are bound to the DOM
+//                   'afterDelegateEvents': function(console.log) {alert(6);},
+//                   'beforeUpdateConfig': function(console.log) {alert(7);}, // before configuration is updated (only relevant in uncommon customizations)
+//                   'afterUpdateConfig': function(console.log) {alert(8);},                         
+      },                  
+   	  "buttonDestination": "checkout",
+      "contents": {
+          "img": false,
+          "imgWithCarousel": false,
+          "variantTitle": false,
+          "buttonWithQuantity": false,
+          "options":false,
+          "title":false,              
+          "quantity": false,
+          "price" :false                         
+      },
+      "text": {
+        "button": "Buy now"
+      },
+  },
+  "productSet": {
+    "styles": {
+      "products": {
+        "@media (min-width: 601px)": {
+          "margin-left": "-20px"
+        }
+      },
+     "price": {
+           "display": "none"
+       }                    
+    }
+  },
+  "option": {},
+  "cart": {
+    "text": {
+      "total": "Subtotal",
+      "button": "Checkout"
+    },
+    "popup":false                    
+  },
+  "toggle": {}
+},
+      });
+    });
+  }
+})();
+  }
+/*]]>*/
+ <div id='product-component-{{ product.id }}' class="buy-custom-button-btn" style="max-width: 100%;"></div>

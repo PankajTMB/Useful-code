@@ -1,6 +1,6 @@
 npm install imagemin imagemin-webp = for install webp node module
 
-node webp.js = for compile image into webp images
+node webp.mjs = for compile image into webp images
 
 
 === example for use webp image ==== 
