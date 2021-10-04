@@ -1,18 +1,19 @@
 ===== Git Commands for upload files for First time ====== 
 
-git clone (https link) = for clone git file at local space.
+(1) git clone (https link) 
    
            OR
 
-git init
-git status
-git add .
-git commit -m "first commit"
-git remote add origin (new repository https link)
-git push origin master 
+(1) git init
+(2) git status
+(3) git add .
+(4) git commit -m "first commit"
+(5) git remote add origin (new repository https link)
+(6) git push origin master 
 
 
 === Git Commands for upload files === 
+
 (1) git status
 (2) git add .
 (3) git commit -m "Write here your Comment"
@@ -20,5 +21,14 @@ git push origin master
 (5) git push
 
 
+=== Git Commands for revert old commit filese === 
 
+(1) git log
+(2) git reset --hard commit number (92728044dbd2765934f3708155941ed132c62fe7)
+(3) git push -f origin master
 
+=== Git Commands for get back deleted commit files === 
+
+(1) git reflog
+(2) git reset --hard commit ID (208e735)
+(3) git push -f origin master

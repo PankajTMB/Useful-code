@@ -1,0 +1,45 @@
+<script>
+//       window.addEventListener("load",()=>{
+ 		setTimeout(function(){
+           //  get noscript tag  content_for_header    	
+            let lazyLoadHeader =  document.querySelector("#lazyLoadHeader");
+        	// create a div element
+        	let divElement = document.createElement("div");
+            // insert content_for_header content into div element
+        	divElement.innerHTML = lazyLoadHeader.innerHTML;
+        	// get divElement data 
+            var children = divElement.children;
+ 			//console.log(children);
+        	// ilteraction children of content_for_header
+            for (var i = 0; i < children.length; i++) {
+                          let InserTag = (tagName)=>{
+                          // create new tag for inster dom
+                          let newTag = document.createElement(tagName);
+                          newTag.innerHTML = children[i].outerText;
+                            if(newTag.innerHTML.includes("window.addEventListener('load', asyncLoad, false);")){
+                              let str = newTag.innerHTML;
+//                               console.log(str);
+                              str = str.replace("window.addEventListener('load', asyncLoad, false);", "asyncLoad();");
+                              str = str.replace("window.attachEvent('onload', asyncLoad);", "asyncLoad();");
+                              newTag.innerHTML = str;
+                            }
+                            // set attributes in new tag
+                            let nodeAttr = children[i].attributes;
+                            for (const iterator of nodeAttr) {
+                              newTag.setAttribute(`${iterator.name}`,`${iterator.nodeValue}`);
+                            }
+                            // append new tag in head
+                            
+                           setTimeout(function(){  
+                              document.head.append(newTag);
+//                               console.log(newTag);
+                          }, i * 180);
+
+                      }
+			 // get content_for_header children tag name
+             InserTag(children[i].nodeName);
+
+            }
+		}, 4000);
+//     });
+  </script>
