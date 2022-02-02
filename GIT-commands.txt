@@ -32,7 +32,7 @@
 (5) git push
 
 
-=== Git Commands for revert old commit filese === 
+=== Git Commands for revert old commit files === 
 
 (1) git log
 (2) git reset --hard commitNumber (92728044dbd2765934f3708155941ed132c62fe7)
@@ -44,4 +44,10 @@
 (2) git reset --hard commit ID (208e735)
 (3) git push -f origin master
 
+=== Git Commands for revert old commit code single file === 
 
+(1) git checkout <second commit's number> index.html
+(2) git reset HEAD index.html
+
+=== Git Commands for get back deleted commit code single file === 
+(1) git checkout -- index.html
