@@ -51,3 +51,9 @@
 
 === Git Commands for get back deleted commit code single file === 
 (1) git checkout -- index.html
+
+=== Git Commands for update all file === 
+(1) git rm -r --cached .
+(2) git add --all .
+(3) git commit -a -m "Versioning untracked files"
+(4) git push origin master
