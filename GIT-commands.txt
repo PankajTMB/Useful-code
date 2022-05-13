@@ -35,7 +35,7 @@
 === Git Commands for revert old commit files === 
 
 (1) git log
-(2) git reset --hard commitNumber (92728044dbd2765934f3708155941ed132c62fe7)
+(2) git reset --hard (commitNumber - 92728044dbd2765934f3708155941ed132c62fe7)
 (3) git push -f origin master
 
 === Git Commands for get back deleted commit files === 
@@ -57,3 +57,6 @@
 (2) git add --all .
 (3) git commit -a -m "Versioning untracked files"
 (4) git push origin master
+
+=== Git Commands for Remove all changes to last commit === 
+(1) git reset --hard head
