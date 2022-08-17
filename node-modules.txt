@@ -1,0 +1,5 @@
+multer for file upload and parse Formdata.
+formidable for file upload and parse Formdata.
+moongoose for create mongoDB schema and validate data.
+JWT(JSON Web Token) use for securly save cookes data.
+bcrypt for encrypt password.
