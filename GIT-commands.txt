@@ -60,3 +60,6 @@
 
 === Git Commands for Remove all changes to last commit === 
 (1) git reset --hard head
+
+=== Git Commands for config private pacakes === 
+npm login --scope=@sizlcorp --registry=https://npm.pkg.github.com/
